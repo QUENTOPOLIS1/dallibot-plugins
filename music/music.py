@@ -925,9 +925,11 @@ class Music(commands.Cog, name="music"):
 
         # Clear the queue to ensure old tracks don't start playing
         # when someone else queues something.
-        await player.queue.clear()
+        #await player.queue.clear()
+        player.queue.clear()
         # Disconnect from the voice channel.
-        await player.disconnect(self.bot)
+        #await player.disconnect(self.bot)
+        player.disconnect(self.bot)
         if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
             try:
                 return await ctx.message.add_reaction("👋")
