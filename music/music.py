@@ -932,10 +932,12 @@ class Music(commands.Cog, name="music"):
         player.disconnect(self.bot)
         if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
             try:
-                return await ctx.message.add_reaction("👋")
+                #return await ctx.message.add_reaction("👋")
+                return ctx.message.add_reaction("👋")
             except discord.HTTPException:
                 logger.debug("Failed to add reaction")
-        await ctx.send(f'Disconnected from {ctx.author.voice.channel}')
+        #await ctx.send(f'Disconnected from {ctx.author.voice.channel}')
+        ctx.send(f'Disconnected from {ctx.author.voice.channel}')
 
     @commands.cooldown(1, 2)
     @commands.bot_has_permissions(send_messages=True, embed_links=True)
